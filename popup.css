@@ -25,7 +25,7 @@ h1, h2 {
  */
 .notes {
     list-style-type: none;
-    margin: 0;
+    margin: 10px 0 0;
     padding: 0;
     height: 360px;
     overflow: auto;
@@ -57,15 +57,21 @@ h1, h2 {
 /**
     Settings
  */
-.settings-ctrl {
+.settings-ctrl,
+.reload-ctrl {
     color: #666;
     position: absolute;
     top: 12px;
-    right: 12px;
     padding: 4px 9px;
     cursor: pointer;
     z-index: 2;
     background: none;
+}
+.settings-ctrl {
+    right: 12px;
+}
+.reload-ctrl {
+    right: 84px;
 }
 .is-settings-open .settings-ctrl {
     background-color: #000;

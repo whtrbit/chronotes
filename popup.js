@@ -1,7 +1,6 @@
 (function init() {
     'use strict';
 
-    var port = chrome.runtime.connect({name: 'chronotes'});
     var FIREBASE_CONFIG = null;
 
     setupNotes();
@@ -17,6 +16,7 @@
         addSettingsRestoreEventListener();
         getFirebaseConfigFromLocalStorage();
         fillFirebaseURLInForm();
+        addReloadCtrlEventListener();
     }
 
     function addSettingsCtrlOpenEventListener() {
@@ -49,6 +49,17 @@
 
             FIREBASE_CONFIG = getFirebaseConfig();
             restoreBackupFromFirebase();
+        });
+    }
+
+    function addReloadCtrlEventListener () {
+        var trigger = document.getElementById('reload-ctrl');
+
+        trigger.addEventListener('click', function () {
+            chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+                chrome.tabs.sendMessage(tabs[0].id, { type: 'chronotesReload' });
+                showNotification('Chronotes reloaded.')
+            })
         });
     }
 
@@ -116,13 +127,9 @@
                 chrome.storage.local.set({
                     chronotesItems: notes
                 });
-                port.postMessage({
-                    type: 'chronotesBackupRestore',
-                    notes: notes
-                });
                 showNotification('Data restored. Please close and open Chronotes popup to see the list of restored notes.');
             } else {
-                showNotification('No data in database.')
+                showNotification('No data in database.');
             }
 
             chrome.storage.local.set({

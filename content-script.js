@@ -11,7 +11,9 @@
         highlightTargetTextColor: 'lightyellow'
     };
 
-    port.onMessage.addListener(function(message) {
+    port.onMessage.addListener(function (message) {
+        console.log(message);
+
         switch (message.type) {
             case 'chronotesCreate':
                 create(message);
@@ -20,8 +22,13 @@
             case 'chronotesGoTo':
                 gotToNote(message);
                 break;
+        }
+    });
 
-            default:
+    chrome.runtime.onMessage.addListener(function (req) {
+        switch (req.type) {
+            case 'chronotesReload':
+                fillPopupsWithStorageValues();
         }
     });
 
@@ -107,6 +114,7 @@
                                     type: 'chronotesItem',
                                     note: note
                                 });
+
                             }
                         });
                     }

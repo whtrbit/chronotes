@@ -24,8 +24,14 @@ chrome.runtime.onConnect.addListener(function (port) {
                 createBadgeWithCounter(message);
                 break;
 
-            case 'chronotesBackupRestore':
-                restoreBackup(message.notes);
+            case 'chronotesReload':
+                console.log(message)
+                setTimeout(function () {
+                    port.postMessage({
+                        type: 'chronotesReloadNotes'
+                    });
+                }, 1000);
+
                 break;
         }
     });
