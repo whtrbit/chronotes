@@ -1,0 +1,118 @@
+body {
+    width: 360px;
+    margin: 10px 15px;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+button {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    border: 0;
+    outline: 0;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+button:disabled {
+    opacity: 0.5;
+}
+h1, h2 {
+    margin: 0;
+    font-size: 16px;
+}
+
+
+/**
+    Settings
+ */
+.notes {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 360px;
+    overflow: auto;
+}
+.notes li {
+    margin: 10px 0 15px;
+}
+.notes__key {
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+.notes__note {
+    margin-top: 2px;
+    display: none;
+    white-space: pre-wrap;
+}
+.is-open .notes__note {
+    display: block;
+}
+.notes__website {
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+}
+
+
+/**
+    Settings
+ */
+.settings-ctrl {
+    color: #666;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 4px 9px;
+    cursor: pointer;
+    z-index: 2;
+    background: none;
+}
+.is-settings-open .settings-ctrl {
+    background-color: #000;
+    color: #fff;
+}
+.settings {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 10px 15px;
+    z-index: 1;
+    background-color: #fff;
+    overflow: auto;
+    height: 380px;
+}
+.is-settings-open .settings {
+    display: block;
+}
+.settings input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    margin-bottom: 4px;
+    font-size: 11px;
+}
+.settings__actions {
+    text-align: center;
+}
+.settings__notification {
+    text-align: center;
+    margin-top: 25px;
+}
+.settings button {
+    padding: 4px 9px;
+    color: #fff;
+    text-transform: uppercase;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 2px;
+    background-color: #000;
+    margin-top: 4px;
+}
+.settings label {
+    display: block;
+    color: #666;
+    margin: 4px 0;
+}

@@ -1,0 +1,70 @@
+.note-popup {
+    all: initial;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 300px;
+    background-color: #fff;
+    padding: 10px 10px 6px;
+    box-shadow:
+            0 10px 15px 0 rgba(0, 0, 0, 0.24),
+            0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    box-sizing: border-box;
+    z-index: 999999999;
+}
+.is-open .note-popup {
+    display: block;
+}
+.note-popup__heading {
+    padding: 0 15px 5px 0;
+    font: bold 11px/1 Tahoma, Geneva, sans-serif;
+}
+.note-popup i {
+    position: absolute;
+    top: 4px;
+    right: 3px;
+    padding: 2px 6px;
+    color: #000;
+    font-size: 13px;
+    font-style: normal;
+    cursor: pointer;
+}
+.note-popup i:before {
+    content: "✖";
+}
+.note-popup textarea {
+    all: initial;
+    width: 100%;
+    height: 140px;
+    border: 1px solid #ddd;
+    padding: 8px;
+    box-sizing: border-box;
+    font: normal 13px/1 "Courier New";
+}
+.note-popup button,
+.note-popup button:hover,
+.note-popup button:active,
+.note-popup button:visited {
+    all: initial;
+    padding: 0 8px;
+    height: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    float: right;
+    font: bold 11px/20px Tahoma, Geneva, sans-serif;
+    cursor: pointer;
+    margin-left: 2px;
+}
+.note-popup button:nth-child(4),
+.note-popup button:nth-child(4):hover,
+.note-popup button:nth-child(4):active,
+.note-popup button:nth-child(4):visited {
+    background: #000;
+}
+.note-popup button:last-child,
+.note-popup button:last-child:hover,
+.note-popup button:last-child:active,
+.note-popup button:last-child:visited {
+    background: #9f1515;
+}
