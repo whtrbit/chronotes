@@ -1,8 +1,4 @@
-window.onload(function () {
-    init();
-});
-
-function init() {
+(function init() {
     'use strict';
 
     var chronotesItems;
@@ -12,12 +8,11 @@ function init() {
             'DIV', 'P', 'SPAN', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'B',
             'STRONG', 'A', 'LI', 'PRE', 'EM', 'TD', 'TH', 'STRONG', 'B', 'I'
         ],
-        highlightTargetTextColor: 'lightyellow'
+        highlightTargetBackgroundColor: 'lightyellow',
+        highlightTargetTextColor: 'black'
     };
 
     port.onMessage.addListener(function (message) {
-        console.log(message);
-
         switch (message.type) {
             case 'chronotesCreate':
                 create(message);
@@ -264,7 +259,11 @@ function init() {
     }
 
     function markAsWitNote(targetElement) {
-        targetElement.style = 'background: ' + SETTINGS.highlightTargetTextColor + ' !important; position: relative;';
+        targetElement.style =
+            'background: ' + SETTINGS.highlightTargetBackgroundColor + ';' +
+            'color: ' + SETTINGS.highlightTargetTextColor + ' !important;' +
+            'position: relative;' +
+            'cursor: help;';
         targetElement.classList.add('chronotes-item');
     }
 
@@ -296,4 +295,4 @@ function init() {
     function getWebsiteURL() {
         return window.location.href;
     }
-}
+})();

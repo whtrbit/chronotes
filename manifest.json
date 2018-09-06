@@ -2,7 +2,7 @@
     "name": "Chronotes",
     "short_name": "Chronotes",
     "description": "Pin sticky notes to elements on your website. Manage them by adding/editing/removing notes from context menu.",
-    "version": "1.4.1",
+    "version": "1.4.2",
     "permissions": [
         "contextMenus",
         "storage",
