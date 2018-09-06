@@ -25,13 +25,9 @@ chrome.runtime.onConnect.addListener(function (port) {
                 break;
 
             case 'chronotesReload':
-                console.log(message)
-                setTimeout(function () {
-                    port.postMessage({
-                        type: 'chronotesReloadNotes'
-                    });
-                }, 1000);
-
+                port.postMessage({
+                    type: 'chronotesReloadNotes'
+                });
                 break;
         }
     });

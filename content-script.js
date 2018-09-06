@@ -1,4 +1,8 @@
-(function init() {
+window.onload(function () {
+    init();
+});
+
+function init() {
     'use strict';
 
     var chronotesItems;
@@ -292,4 +296,4 @@
     function getWebsiteURL() {
         return window.location.href;
     }
-})();
+}
